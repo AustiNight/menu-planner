@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu Planning &amp; Shopping List Tool</title>
+  <link rel="stylesheet" href="style.css" />
+  <!--
+    This simple web application helps a chef plan a menu, calculate
+    ingredient requirements for an event and compile a shopping list.
+    Data is persisted to the browser via localStorage so that the
+    ingredient catalog and recipes survive page reloads.
+  -->
+</head>
+<body>
+  <header>
+    <h1>Menu Planning &amp; Shopping List Tool</h1>
+    <p>This tool lets you build a menu, assign ingredients to each dish, specify the number of diners and compile a shopping list with pricing. Your ingredient catalog will persist across sessions.</p>
+  </header>
+
+  <main>
+    <!-- Menu Section -->
+    <section id="menu-section">
+      <h2>Menu</h2>
+      <p>Enter the dishes for your event. Each dish can have a name and optional description.</p>
+      <table id="menu-table">
+        <thead>
+          <tr>
+            <th>Dish Name</th>
+            <th>Description</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- rows will be injected here -->
+        </tbody>
+      </table>
+      <button id="add-dish-btn" class="add-btn">Add Dish</button>
+    </section>
+
+    <!-- Ingredients Section -->
+    <section id="ingredients-section">
+      <h2>Ingredients</h2>
+      <p>Assign ingredients to each dish along with the amount needed per dish and its unit.</p>
+      <table id="ingredients-table">
+        <thead>
+          <tr>
+            <th>Dish</th>
+            <th>Ingredient</th>
+            <th>Amount</th>
+            <th>Unit</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- rows will be injected here -->
+        </tbody>
+      </table>
+      <button id="add-ingredient-btn" class="add-btn">Add Ingredient</button>
+    </section>
+
+    <!-- Expected Seats Section -->
+    <section id="seats-section">
+      <h2>Expected Seats (Number of Diners)</h2>
+      <input type="number" id="expected-seats" min="1" value="1" />
+    </section>
+
+    <!-- Generate Shopping List Button -->
+    <section id="generate-section">
+      <button id="generate-btn" class="primary-btn">Generate Shopping List</button>
+    </section>
+
+    <!-- Shopping List Section -->
+    <section id="shopping-section">
+      <h2>Shopping List</h2>
+      <p>Select how you plan to purchase each ingredient (number and type of unit) and enter a price. Prices are saved to the catalog and reused next time.</p>
+      <table id="shopping-table">
+        <thead>
+          <tr>
+            <th>Ingredient</th>
+            <th>Total Needed</th>
+            <th>Unit</th>
+            <th>Number of Units</th>
+            <th>Type of Unit</th>
+            <th>Price</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- rows will be injected here -->
+        </tbody>
+      </table>
+      <button id="clear-shopping-btn" class="secondary-btn">Clear Shopping List</button>
+    </section>
+
+    <!-- Ingredient Catalog Section -->
+    <section id="catalog-section">
+      <h2>Ingredient Catalog</h2>
+      <p>The catalog stores prices per unit for ingredients. Entries are automatically created when you add prices in the shopping list.</p>
+      <table id="catalog-table">
+        <thead>
+          <tr>
+            <th>Ingredient</th>
+            <th>Number of Units</th>
+            <th>Unit</th>
+            <th>Price per Unit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- rows will be injected here -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>Data is saved locally in your browser. To start over, clear your browser storage.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
